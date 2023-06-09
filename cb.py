@@ -1,16 +1,15 @@
-import yt_dlp
-import os
-import argparse
+import yt_dlp, os, argparse
 
 parser = argparse.ArgumentParser(description="Config and username parser for ctbrec.")
 parser.add_argument("-u", "--username", help="Provide an username from the commandline.", required=False, type=str, default=None)
-parser.add_argument("-p", "--path", help="Provide a path for the downloads. (`H:/cb/` by default)", required=False, type=str, default="H:/cb/")
+parser.add_argument("-p", "--path", help="Provide a path for the downloads. (Current parent directory by default)", required=False, type=str, default=os.getcwd())
 parser.add_argument("-c", "--cookie", "--cookiefile", help="Provide a name for a cookiefile. (`cb-cookie.txt` by default)", required=False, type=str, default=None)
 parser.add_argument("-v", "--verbose", help="Print yt-dlp debugging information.", required=False, const=True, default=False, action="store_const")
 parser.add_argument("-q", "--quiet", help="Do not print yt-dlp messages.", required=False, const=True, default=False, action="store_const")
 args = parser.parse_args()
 
 def main():
+    print(args.path)
     if args.username is not None:
         username = args.username
     else:

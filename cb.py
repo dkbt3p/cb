@@ -23,6 +23,7 @@ def main():
         "quiet": False,
         "verbose": False,
         "nopart": True,
+        'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
         "outtmpl": "%(epoch>%Y-%m-%d)s/%(id)s/%(id)s %(epoch>%Y-%m-%d %H-%M)s.%(ext)s"
         # example path: G:\ctbrec\{username}\{username} {YYYY-MM-DD HH-MM}
     }
